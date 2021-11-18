@@ -16,9 +16,6 @@ jobs:
  
     - name: Install dependencies
       run: make
-      
-    - name: Run lint_check
-      run: make lint-check
-      
+          
     - name: Run build
       run: make build
