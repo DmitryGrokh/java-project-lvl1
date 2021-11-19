@@ -6,3 +6,15 @@
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage" /></a>
 
 [![Build](https://github.com/DmitryGrokh/java-project-lvl1/actions/workflows/makefile.yml/badge.svg)](https://github.com/DmitryGrokh/java-project-lvl1/actions/workflows/makefile.yml)
+
+
+<details>
+	<summary>asciinema EvenGame</summary>
+<a href="https://asciinema.org/a/NwpTBdPHDKKwyQ0jFa00cT5MU" target="_blank"><img src="https://asciinema.org/a/NwpTBdPHDKKwyQ0jFa00cT5MU.svg" /></a>
+</details>
+
+
+<details>
+	<summary>asciinema CalculatorGame </summary>
+<a href="https://asciinema.org/a/nWQ7dEHgbCP7bCR57UjJl68Gv" target="_blank"><img src="https://asciinema.org/a/nWQ7dEHgbCP7bCR57UjJl68Gv.svg" /></a>
+</details>
