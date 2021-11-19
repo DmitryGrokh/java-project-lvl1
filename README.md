@@ -15,6 +15,11 @@
 
 
 <details>
-	<summary>asciinema CalculatorGame </summary>
+	<summary>asciinema CalculatorGame</summary>
 <a href="https://asciinema.org/a/nWQ7dEHgbCP7bCR57UjJl68Gv" target="_blank"><img src="https://asciinema.org/a/nWQ7dEHgbCP7bCR57UjJl68Gv.svg" /></a>
+</details>
+
+<details>
+	<summary>asciinema  GCD_Game</summary>
+<a href="https://asciinema.org/a/fl7hg6HV0xOJ6NBrsptBCmZQh" target="_blank"><img src="https://asciinema.org/a/fl7hg6HV0xOJ6NBrsptBCmZQh.svg" /></a>
 </details>
