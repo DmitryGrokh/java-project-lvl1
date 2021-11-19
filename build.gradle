@@ -8,6 +8,7 @@
 plugins {
     id 'application'
     id 'com.github.ben-manes.versions' version '0.39.0'
+    id 'checkstyle'
 }
 
 application {
@@ -20,6 +21,10 @@ compileJava {
 
 repositories {
     mavenCentral()
+}
+
+run {
+    standardInput = System.in
 }
 
 group = 'hexlet.code'
