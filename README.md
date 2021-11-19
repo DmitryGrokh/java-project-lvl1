@@ -12,3 +12,9 @@
 	<summary>asciinema EvenGame</summary>
 <a href="https://asciinema.org/a/NwpTBdPHDKKwyQ0jFa00cT5MU" target="_blank"><img src="https://asciinema.org/a/NwpTBdPHDKKwyQ0jFa00cT5MU.svg" /></a>
 </details>
+
+
+<details>
+	<summary>asciinema CalculatorGame </summary>
+<a href="https://asciinema.org/a/nWQ7dEHgbCP7bCR57UjJl68Gv" target="_blank"><img src="https://asciinema.org/a/nWQ7dEHgbCP7bCR57UjJl68Gv.svg" /></a>
+</details>
