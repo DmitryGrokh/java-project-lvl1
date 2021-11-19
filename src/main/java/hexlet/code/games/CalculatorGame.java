@@ -16,44 +16,16 @@ public class CalculatorGame {
 
     public static void playCalculatorGame() {
         var currentPlayerName = playerIntroduction();
-        String question = "What is the result of the expression?";
 
         int winCount = 0;
         int i = 0;
         while (i < 3) {
-            int firstNumber = (int) (Math.random() * 10);
-            int secondNumber = (int) (Math.random() * 10);
             int numberOfExercise = (int) (Math.random() * 3) + 1;
             if (numberOfExercise == 4) {
                 numberOfExercise = 3;
             }
             int playerAnswer;
-            int rightAnswer = 0;
-
-            switch (numberOfExercise) {
-                case 1:
-                    rightAnswer = firstNumber + secondNumber;
-                    System.out.println(question);
-                    System.out.printf("Question: %d + %d%n", firstNumber, secondNumber);
-                    System.out.print("Your answer: ");
-                    break;
-                case 2:
-                    rightAnswer = firstNumber - secondNumber;
-                    System.out.println(question);
-                    System.out.printf("Question: %d - %d%n", firstNumber, secondNumber);
-                    System.out.print("Your answer: ");
-                    break;
-                case 3:
-                    rightAnswer = firstNumber * secondNumber;
-                    System.out.println(question);
-                    System.out.printf("Question: %d * %d%n", firstNumber, secondNumber);
-                    System.out.print("Your answer: ");
-                    break;
-                default:
-                    break;
-
-            }
-
+            var rightAnswer = selectExercise(numberOfExercise);
 
             Scanner scanner2 = new Scanner(System.in);
             playerAnswer = scanner2.nextInt();
@@ -62,19 +34,50 @@ public class CalculatorGame {
                 System.out.println("Correct!");
                 winCount++;
             } else {
-                System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer);
-                System.out.println("Let's try again, " + currentPlayerName + "!");
+                System.out.printf("%d is wrong answer ;(. Correct answer was %d%n", playerAnswer, rightAnswer);
+                System.out.printf("Let's try again, %s!%n", currentPlayerName);
                 break;
             }
             if (winCount == 3) {
-                System.out.println("Congratulations, " + currentPlayerName + "!");
+                System.out.printf("Congratulations, %s!%n", currentPlayerName);
                 break;
             }
-
 
             i++;
         }
 
+    }
+
+    private static int selectExercise(int numberOfExercise) {
+        int rightAnswer = 0;
+        int firstNumber = (int) (Math.random() * 10);
+        int secondNumber = (int) (Math.random() * 10);
+        String question = "What is the result of the expression?";
+
+        switch (numberOfExercise) {
+            case 1:
+                rightAnswer = firstNumber + secondNumber;
+                System.out.println(question);
+                System.out.printf("Question: %d + %d%n", firstNumber, secondNumber);
+                System.out.print("Your answer: ");
+                break;
+            case 2:
+                rightAnswer = firstNumber - secondNumber;
+                System.out.println(question);
+                System.out.printf("Question: %d - %d%n", firstNumber, secondNumber);
+                System.out.print("Your answer: ");
+                break;
+            case 3:
+                rightAnswer = firstNumber * secondNumber;
+                System.out.println(question);
+                System.out.printf("Question: %d * %d%n", firstNumber, secondNumber);
+                System.out.print("Your answer: ");
+                break;
+            default:
+                break;
+
+        }
+        return rightAnswer;
     }
 
 

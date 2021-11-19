@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import static hexlet.code.Cli.playerName;
 
-
 public class EvenGame {
 
     private static String playerIntroduction() {
@@ -14,7 +13,6 @@ public class EvenGame {
         System.out.println("Hello, " + currentPlayerName + "!");
         return currentPlayerName;
     }
-
 
     public static void playEvenGame() {
 
@@ -49,11 +47,9 @@ public class EvenGame {
         }
     }
 
-
     private static String answer(int randomNumber) {
         boolean even = (randomNumber % 2) == 0;
         return even ? "yes" : "no";
     }
-
 
 }
