@@ -7,4 +7,8 @@
 
 [![Build](https://github.com/DmitryGrokh/java-project-lvl1/actions/workflows/makefile.yml/badge.svg)](https://github.com/DmitryGrokh/java-project-lvl1/actions/workflows/makefile.yml)
 
+
+<details>
+	<summary>asciinema EvenGame</summary>
 <a href="https://asciinema.org/a/NwpTBdPHDKKwyQ0jFa00cT5MU" target="_blank"><img src="https://asciinema.org/a/NwpTBdPHDKKwyQ0jFa00cT5MU.svg" /></a>
+</details>
