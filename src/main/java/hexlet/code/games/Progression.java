@@ -15,7 +15,7 @@ public class Progression {
     }
 
 
-    public static void makeProgression() {
+    public static void playProgressionGame() {
         var currentPlayerName = playerIntroduction();
         int winCounts = 0;
         for (int i = 0; i < 3; i++) {
