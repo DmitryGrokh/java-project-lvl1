@@ -39,11 +39,11 @@ public class Progression {
                 System.out.println("Correct!");
                 winCounts++;
                 if (winCounts == 3) {
-                    System.out.println("Congratulations, " + currentPlayerName + "!");
+                    System.out.printf("Congratulations, %s!%n", currentPlayerName);
                 }
             } else {
-                System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer);
-                System.out.println("Let's try again, " + currentPlayerName + "!");
+                System.out.printf("%d is wrong answer ;(. Correct answer was %d%n", playerAnswer, rightAnswer);
+                System.out.printf("Let's try again, %s!%n", currentPlayerName);
                 break;
             }
         }
@@ -52,11 +52,12 @@ public class Progression {
 
     private static String[] createProgression() {
         int arrayLenght = (int) ((Math.random() * 5) + 5);
+
         if (arrayLenght == 0) {
             arrayLenght = 1;
         }
 
-        String[] counts = new String[arrayLenght];
+        var progression = new String[arrayLenght];
 
         int progressionDisplacement = (int) (Math.random() * 100);
         int progressionStep = (int) (Math.random() * 10);
@@ -64,10 +65,10 @@ public class Progression {
         for (int i = 0; i < arrayLenght; i++) {
             int count = i + progressionDisplacement + (i * progressionStep);
             String count2 = String.valueOf(count);
-            counts[i] = count2;
+            progression[i] = count2;
         }
 
-        return counts;
+        return progression;
     }
 
 }
