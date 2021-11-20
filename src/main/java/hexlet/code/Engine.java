@@ -4,6 +4,7 @@ import static hexlet.code.games.CalculatorGame.playCalculatorGame;
 import static hexlet.code.Cli.playerName;
 import static hexlet.code.games.EvenGame.playEvenGame;
 import static hexlet.code.games.GSDGame.playGcdGame;
+import static hexlet.code.games.Progression.makeProgression;
 
 public class Engine {
 
@@ -20,6 +21,9 @@ public class Engine {
                 break;
             case 4:
                 playGcdGame();
+                break;
+            case 5:
+                makeProgression();
                 break;
             case 0:
                 System.out.println("Bye!");
