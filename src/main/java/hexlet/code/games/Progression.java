@@ -24,7 +24,7 @@ public class Progression {
             int randomPlaceInArray = (int) (Math.random() * counts.length);
             int rightAnswer = Integer.parseInt(counts[randomPlaceInArray]);
 
-            counts[randomPlaceInArray] = " .. ";
+            counts[randomPlaceInArray] = "..";
             System.out.println("What number is missing in the progression? ");
             System.out.println("Question: " + Arrays.toString(counts)
                     .replace("[", "")
