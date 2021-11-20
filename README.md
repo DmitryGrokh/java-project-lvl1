@@ -29,3 +29,8 @@
 <a href="https://asciinema.org/a/fKZNEzdBVGxjgnzLKdl6ifMS3" target="_blank"><img src="https://asciinema.org/a/fKZNEzdBVGxjgnzLKdl6ifMS3.svg" /></a>
 </details>
 
+<details>
+	<summary>asciinema PrimeGame</summary>
+<a href="https://asciinema.org/a/c6i7sLkprDiqxzIDMvQDz6w3P" target="_blank"><img src="https://asciinema.org/a/c6i7sLkprDiqxzIDMvQDz6w3P.svg" /></a>
+</details>
+
