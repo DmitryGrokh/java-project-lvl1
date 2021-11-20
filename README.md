@@ -20,6 +20,12 @@
 </details>
 
 <details>
-	<summary>asciinema  GCD_Game</summary>
+	<summary>asciinema GCD_Game</summary>
 <a href="https://asciinema.org/a/fl7hg6HV0xOJ6NBrsptBCmZQh" target="_blank"><img src="https://asciinema.org/a/fl7hg6HV0xOJ6NBrsptBCmZQh.svg" /></a>
 </details>
+
+<details>
+	<summary>asciinema ProgressionGame</summary>
+<a href="https://asciinema.org/a/fKZNEzdBVGxjgnzLKdl6ifMS3" target="_blank"><img src="https://asciinema.org/a/fKZNEzdBVGxjgnzLKdl6ifMS3.svg" /></a>
+</details>
+
