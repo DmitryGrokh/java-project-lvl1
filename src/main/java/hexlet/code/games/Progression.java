@@ -26,7 +26,7 @@ public class Progression {
 
             counts[randomPlaceInArray] = " .. ";
             System.out.println("What number is missing in the progression?");
-            System.out.println(Arrays.toString(counts)
+            System.out.println("Question: " + Arrays.toString(counts)
                     .replace("[", "")
                     .replace("]", "")
                     .replace(",", " "));
