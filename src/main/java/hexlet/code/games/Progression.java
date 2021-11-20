@@ -29,7 +29,7 @@ public class Progression {
             System.out.println("Question: " + Arrays.toString(counts)
                     .replace("[", "")
                     .replace("]", "")
-                    .replace(",", " "));
+                    .replace(",", ""));
 
             System.out.print("Your answer: ");
             Scanner scanner = new Scanner(System.in);
