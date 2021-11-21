@@ -6,6 +6,10 @@ import static hexlet.code.Cli.playerName;
 
 public class CalculatorGame {
 
+    public static final int ADDITION = 1;
+    public static final int SUBTRACTION = 2;
+    public static final int MULTIPLICATION = 3;
+
     private static String playerIntroduction() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -16,14 +20,11 @@ public class CalculatorGame {
 
     public static void playCalculatorGame() {
         var currentPlayerName = playerIntroduction();
-
+        final int cycleCount = 3;
         int winCount = 0;
         int i = 0;
-        while (i < 3) {
-            int numberOfExercise = (int) (Math.random() * 3) + 1;
-            if (numberOfExercise == 4) {
-                numberOfExercise = 3;
-            }
+        while (i < cycleCount) {
+            int numberOfExercise = (int) (Math.random() * 2) + 1;
             int playerAnswer;
             var rightAnswer = selectExercise(numberOfExercise);
 
@@ -38,7 +39,7 @@ public class CalculatorGame {
                 System.out.printf("Let's try again, %s!%n", currentPlayerName);
                 break;
             }
-            if (winCount == 3) {
+            if (winCount == cycleCount) {
                 System.out.printf("Congratulations, %s!%n", currentPlayerName);
                 break;
             }
@@ -50,24 +51,25 @@ public class CalculatorGame {
 
     private static int selectExercise(int numberOfExercise) {
         int rightAnswer = 0;
-        int firstNumber = (int) (Math.random() * 10);
-        int secondNumber = (int) (Math.random() * 10);
+        final int randomRange = 10;
+        int firstNumber = (int) (Math.random() * randomRange);
+        int secondNumber = (int) (Math.random() * randomRange);
         String question = "What is the result of the expression?";
 
         switch (numberOfExercise) {
-            case 1:
+            case ADDITION:
                 rightAnswer = firstNumber + secondNumber;
                 System.out.println(question);
                 System.out.printf("Question: %d + %d%n", firstNumber, secondNumber);
                 System.out.print("Your answer: ");
                 break;
-            case 2:
+            case SUBTRACTION:
                 rightAnswer = firstNumber - secondNumber;
                 System.out.println(question);
                 System.out.printf("Question: %d - %d%n", firstNumber, secondNumber);
                 System.out.print("Your answer: ");
                 break;
-            case 3:
+            case MULTIPLICATION:
                 rightAnswer = firstNumber * secondNumber;
                 System.out.println(question);
                 System.out.printf("Question: %d * %d%n", firstNumber, secondNumber);

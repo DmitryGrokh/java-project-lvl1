@@ -8,28 +8,35 @@ import static hexlet.code.games.PrimeGame.playPrimeGame;
 import static hexlet.code.games.Progression.playProgressionGame;
 
 public class Engine {
+    public static final int GREETING_MESSAGE = 1;
+    public static final int EVEN_GAME = 2;
+    public static final int CALCULATOR_GAME = 3;
+    public static final int GCD_GAME = 4;
+    public static final int PROGRESSION_GAME = 5;
+    public static final int PRIME_GAME = 6;
+    public static final int EXIT_PROGRAM = 0;
 
     public static void gameSelection(int gameNumber) {
         switch (gameNumber) {
-            case 1:
+            case GREETING_MESSAGE:
                 greetingMessage();
                 break;
-            case 2:
+            case EVEN_GAME:
                 playEvenGame();
                 break;
-            case 3:
+            case CALCULATOR_GAME:
                 playCalculatorGame();
                 break;
-            case 4:
+            case GCD_GAME:
                 playGcdGame();
                 break;
-            case 5:
+            case PROGRESSION_GAME:
                 playProgressionGame();
                 break;
-            case 6:
+            case PRIME_GAME:
                 playPrimeGame();
                 break;
-            case 0:
+            case EXIT_PROGRAM:
                 System.out.println("Bye!");
                 break;
             default:

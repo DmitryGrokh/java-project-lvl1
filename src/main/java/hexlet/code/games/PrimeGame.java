@@ -18,10 +18,11 @@ public class PrimeGame {
 
     public static void playPrimeGame() {
         var currentPlayerName = playerIntroduction();
-
+        final int cycleCount = 3;
+        final int randomModificator = 50;
         int winCount = 0;
-        for (int count = 0; count < 3; count++) {
-            int randomNumber = (int) (Math.random() * 50);
+        for (int count = 0; count < cycleCount; count++) {
+            int randomNumber = (int) (Math.random() * randomModificator);
             String rightAnswer;
             if (simpleCheck(randomNumber)) {
                 rightAnswer = "yes";
@@ -38,7 +39,7 @@ public class PrimeGame {
             if (playerAnswer.equals(rightAnswer)) {
                 System.out.println("Correct!");
                 winCount++;
-                if (winCount == 3) {
+                if (winCount == cycleCount) {
                     System.out.println("Congratulations, " + currentPlayerName + "!");
                     break;
                 }

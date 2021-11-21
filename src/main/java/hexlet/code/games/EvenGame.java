@@ -17,9 +17,9 @@ public class EvenGame {
     public static void playEvenGame() {
 
         var currentPlayerName = playerIntroduction();
-        int attempts = 3;
+        final int attempts = 3;
         int winCount = 0;
-        int rangeOfNumbers = 100;
+        final int rangeOfNumbers = 100;
         for (int i = 0; i < attempts; i++) {
             int randomNumber = (int) (Math.random() * rangeOfNumbers);
 

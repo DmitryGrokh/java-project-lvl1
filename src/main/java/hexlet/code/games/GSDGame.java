@@ -17,10 +17,13 @@ public class GSDGame {
 
     public static void playGcdGame() {
         var currentPlayerName = playerIntroduction();
+        final int randomModificator = 100;
+        final int cycleCount = 3;
         int winCount = 0;
-        for (int x = 0; x < 3; x++) {
-            int firstNumber = (int) (Math.random() * 100);
-            int secondNumber = (int) (Math.random() * 100);
+        for (int x = 0; x < cycleCount; x++) {
+
+            int firstNumber = (int) (Math.random() * randomModificator);
+            int secondNumber = (int) (Math.random() * randomModificator);
             int rightAnswer = findGcd(firstNumber, secondNumber);
 
 
@@ -34,7 +37,7 @@ public class GSDGame {
             if (rightAnswer == playerAnswer) {
                 System.out.println("Correct!");
                 winCount++;
-                if (winCount == 3) {
+                if (winCount == cycleCount) {
                     System.out.println("Congratulations, " + currentPlayerName + "!");
                     break;
                 }
