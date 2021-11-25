@@ -1,56 +1,59 @@
 package hexlet.code;
 
-import static hexlet.code.games.CalculatorGame.playCalculatorGame;
+import java.util.Scanner;
+
 import static hexlet.code.Cli.playerName;
-import static hexlet.code.games.EvenGame.playEvenGame;
-import static hexlet.code.games.GSDGame.playGcdGame;
-import static hexlet.code.games.PrimeGame.playPrimeGame;
-import static hexlet.code.games.Progression.playProgressionGame;
 
 public class Engine {
-    public static final int GREETING_MESSAGE = 1;
-    public static final int EVEN_GAME = 2;
-    public static final int CALCULATOR_GAME = 3;
-    public static final int GCD_GAME = 4;
-    public static final int PROGRESSION_GAME = 5;
-    public static final int PRIME_GAME = 6;
-    public static final int EXIT_PROGRAM = 0;
 
-    public static void gameSelection(int gameNumber) {
-        switch (gameNumber) {
-            case GREETING_MESSAGE:
-                greetingMessage();
-                break;
-            case EVEN_GAME:
-                playEvenGame();
-                break;
-            case CALCULATOR_GAME:
-                playCalculatorGame();
-                break;
-            case GCD_GAME:
-                playGcdGame();
-                break;
-            case PROGRESSION_GAME:
-                playProgressionGame();
-                break;
-            case PRIME_GAME:
-                playPrimeGame();
-                break;
-            case EXIT_PROGRAM:
-                System.out.println("Bye!");
-                break;
-            default:
-                break;
-        }
 
-    }
-
-    public static void greetingMessage() {
+    private static String playerIntroduction() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         final String currentPlayerName = playerName();
         System.out.println("Hello, " + currentPlayerName + "!");
+        return currentPlayerName;
     }
+
+    public static void gameEngine(String gameRules, String[] questions, String[] rightAnswers) {
+
+        var currentPlayerName = playerIntroduction();
+
+        System.out.println(gameRules);
+
+        int winCount = 0;
+
+        final int gamesCount = 3;
+
+        for (int i = 0; i < gamesCount; i++) {
+
+            System.out.println("Question: " + questions[i]);
+
+            System.out.print("Your answer: ");
+
+            Scanner scanner = new Scanner(System.in);
+
+            String playerAnswer = scanner.next();
+
+            if (playerAnswer.equals(rightAnswers[i])) {
+                System.out.println("Correct!");
+                winCount++;
+
+                if (winCount == gamesCount) {
+                    System.out.println("Congratulations, " + currentPlayerName + "!");
+                    break;
+                }
+
+            } else {
+
+                System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + rightAnswers[i]);
+                System.out.println("Let's try again, " + currentPlayerName + "!");
+                break;
+
+            }
+        }
+    }
+
 
 }
 

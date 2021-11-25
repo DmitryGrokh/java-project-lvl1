@@ -1,57 +1,40 @@
 package hexlet.code.games;
 
-
-import java.util.Scanner;
-
-import static hexlet.code.Cli.playerName;
+import static hexlet.code.Engine.gameEngine;
 
 public class PrimeGame {
 
-    private static String playerIntroduction() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        final String currentPlayerName = playerName();
-        System.out.println("Hello, " + currentPlayerName + "!");
-        return currentPlayerName;
-    }
-
 
     public static void playPrimeGame() {
-        var currentPlayerName = playerIntroduction();
-        final int cycleCount = 3;
-        final int randomModificator = 50;
-        int winCount = 0;
-        for (int count = 0; count < cycleCount; count++) {
+
+        String primeGameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+        final int arraySize = 3;
+
+        String[] primeGameQuestions = new String[arraySize];
+
+        String[] primeGameAnswers = new String[arraySize];
+
+        for (int count = 0; count < arraySize; count++) {
+            final int randomModificator = 50;
+
             int randomNumber = (int) (Math.random() * randomModificator);
+
             String rightAnswer;
+
             if (simpleCheck(randomNumber)) {
                 rightAnswer = "yes";
             } else {
                 rightAnswer = "no";
             }
 
-            System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-            System.out.println("Question: " + randomNumber);
-            System.out.print("Your answer: ");
+            primeGameQuestions[count] = String.valueOf(randomNumber);
 
-            Scanner scanner = new Scanner(System.in);
-            String playerAnswer = scanner.next();
-            if (playerAnswer.equals(rightAnswer)) {
-                System.out.println("Correct!");
-                winCount++;
-                if (winCount == cycleCount) {
-                    System.out.println("Congratulations, " + currentPlayerName + "!");
-                    break;
-                }
-            } else {
-                System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
-                System.out.println("Let's try again, " + currentPlayerName + "!");
-                break;
-            }
-
+            primeGameAnswers[count] = rightAnswer;
 
         }
 
+        gameEngine(primeGameRules, primeGameQuestions, primeGameAnswers);
 
     }
 
