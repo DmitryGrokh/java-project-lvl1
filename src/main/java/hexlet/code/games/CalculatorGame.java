@@ -1,16 +1,15 @@
 package hexlet.code.games;
 
 import static hexlet.code.Engine.gameEngine;
+import static hexlet.code.Utils.generateRandom;
+import static hexlet.code.Utils.LOWER_RANGE_LIMIT;
+import static hexlet.code.Utils.UPPER_RANGE_LIMIT;
 
 public class CalculatorGame {
 
-    public static final int ADDITION = 1;
-    public static final int SUBTRACTION = 2;
-    public static final int MULTIPLICATION = 3;
+    public static final String CALCULATOR_GAME_RULES = "What is the result of the expression?";
 
     public static void playCalculatorGame() {
-
-        String calculatorGameRules = "What is the result of the expression?";
 
         final int arraySize = 3;
 
@@ -18,49 +17,60 @@ public class CalculatorGame {
 
         String[] calculatorGameQuestions = new String[arraySize];
 
+        var operations = new String[]{"+", "-", "*"};
+
         for (int counts = 0; counts < arraySize; counts++) {
 
-            int numberOfExercise = (int) (Math.random() * arraySize);
-            if (numberOfExercise == 0) {
-                numberOfExercise = arraySize;
+            int numberOfExercise = generateRandom(LOWER_RANGE_LIMIT, arraySize);
+
+            if (numberOfExercise == arraySize) {
+                numberOfExercise = 0;
             }
 
-            int rightAnswer = 0;
+            String typeOfOperation = operations[numberOfExercise];
 
-            final int randomRange = 50;
+            int firstNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
 
-            int firstNumber = (int) (Math.random() * randomRange);
+            int secondNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
 
-            int secondNumber = (int) (Math.random() * randomRange);
+            String questionToPlayer = String.format("%d %s %d", firstNumber, typeOfOperation, secondNumber);
 
-            String question = "";
+            var rightAnswer = calculateRightAnswer(firstNumber, typeOfOperation, secondNumber);
 
-            switch (numberOfExercise) {
-                case ADDITION:
-                    question = firstNumber + " + " + secondNumber;
-                    rightAnswer = firstNumber + secondNumber;
-                    break;
-                case SUBTRACTION:
-                    question = firstNumber + " - " + secondNumber;
-                    rightAnswer = firstNumber - secondNumber;
-                    break;
-                case MULTIPLICATION:
-                    question = firstNumber + " * " + secondNumber;
-                    rightAnswer = firstNumber * secondNumber;
-                    break;
-                default:
-                    break;
-
-            }
-
-            calculatorGameQuestions[counts] = question;
+            calculatorGameQuestions[counts] = questionToPlayer;
 
             calculatorGameAnswers[counts] = String.valueOf(rightAnswer);
+        }
+
+        gameEngine(CALCULATOR_GAME_RULES, calculatorGameQuestions, calculatorGameAnswers);
+
+    }
+
+
+    public static int calculateRightAnswer(int firstNumber, String typeOfOperation, int secondNumber) {
+
+        int rightAnswer = 0;
+
+        switch (typeOfOperation) {
+
+            case "+":
+                rightAnswer = firstNumber + secondNumber;
+                break;
+
+            case "-":
+                rightAnswer = firstNumber - secondNumber;
+                break;
+
+            case "*":
+                rightAnswer = firstNumber * secondNumber;
+                break;
+
+            default:
+                break;
 
         }
 
-        gameEngine(calculatorGameRules, calculatorGameQuestions, calculatorGameAnswers);
-
+        return rightAnswer;
 
     }
 

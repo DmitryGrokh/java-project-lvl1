@@ -1,13 +1,16 @@
 package hexlet.code.games;
 
 import static hexlet.code.Engine.gameEngine;
+import static hexlet.code.Utils.generateRandom;
+import static hexlet.code.Utils.LOWER_RANGE_LIMIT;
+import static hexlet.code.Utils.UPPER_RANGE_LIMIT;
+
 
 public class GSDGame {
 
+    public static final String GSD_GAME_RULES = "Find the greatest common divisor of given numbers.";
 
     public static void playGcdGame() {
-
-        String gsdGameRules = "Find the greatest common divisor of given numbers.";
 
         final int arraySize = 3;
 
@@ -17,20 +20,18 @@ public class GSDGame {
 
         for (int count = 0; count < arraySize; count++) {
 
-            final int randomRange = 100;
+            int firstNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
 
-            int firstNumber = (int) (Math.random() * randomRange);
-
-            int secondNumber = (int) (Math.random() * randomRange);
+            int secondNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
 
             int rightAnswer = findGcd(firstNumber, secondNumber);
 
             gcdGameAnswers[count] = String.valueOf(rightAnswer);
 
-            gcdGameQuestions[count] = firstNumber + " " + secondNumber;
+            gcdGameQuestions[count] = String.format("%d %d", firstNumber, secondNumber);
         }
 
-        gameEngine(gsdGameRules, gcdGameQuestions, gcdGameAnswers);
+        gameEngine(GSD_GAME_RULES, gcdGameQuestions, gcdGameAnswers);
 
 
     }

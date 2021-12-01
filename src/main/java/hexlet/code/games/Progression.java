@@ -3,13 +3,21 @@ package hexlet.code.games;
 import java.util.Arrays;
 
 import static hexlet.code.Engine.gameEngine;
+import static hexlet.code.Utils.generateRandom;
+import static hexlet.code.Utils.LOWER_RANGE_LIMIT;
+
 
 public class Progression {
 
+    public static final String PROGRESSION_GAME_RULES = "What number is missing in the progression? ";
+
     public static void playProgressionGame() {
-        String progressionGameRules = "What number is missing in the progression? ";
 
         final int arraySize = 3;
+
+        final int progressionRange = 100;
+
+        final int progressionRangeStep = 10;
 
         String[] progressionGameQuestions = new String[arraySize];
 
@@ -17,33 +25,38 @@ public class Progression {
 
         for (int count = 0; count < arraySize; count++) {
 
-            var basedProgression = createProgression();
+            var basedProgression = createProgression(progressionRange, progressionRangeStep);
 
-            int randomPlaceInArray = (int) (Math.random() * (basedProgression.length - 1));
+            int randomPlaceInArray = generateRandom(LOWER_RANGE_LIMIT, basedProgression.length - 1);
 
-            int rightAnswer = Integer.parseInt(basedProgression[randomPlaceInArray]);
+            var rightAnswer = basedProgression[randomPlaceInArray];
 
-            basedProgression[randomPlaceInArray] = "..";
+            progressionGameQuestions[count] = buildQuestion(basedProgression, randomPlaceInArray);
 
-            String arrayToQuestion = Arrays.toString(basedProgression)
-                    .replace("[", "")
-                    .replace("]", "")
-                    .replace(",", "");
-
-            progressionGameQuestions[count] = arrayToQuestion;
-
-            progressionGameAnswers[count] = String.valueOf(rightAnswer);
+            progressionGameAnswers[count] = rightAnswer;
 
         }
 
-        gameEngine(progressionGameRules, progressionGameQuestions, progressionGameAnswers);
+        gameEngine(PROGRESSION_GAME_RULES, progressionGameQuestions, progressionGameAnswers);
 
     }
 
-    private static String[] createProgression() {
+
+    public static String buildQuestion(String[] array, int hiddenItemIndex) {
+
+        array[hiddenItemIndex] = "..";
+
+        return Arrays.toString(array)
+                .replace("[", "")
+                .replace("]", "")
+                .replace(",", "");
+
+    }
+
+    private static String[] createProgression(int progressionRange, int progressionRangeStep) {
         final int arrayRangeModificator = 5;
 
-        int arrayLenght = (int) ((Math.random() * arrayRangeModificator) + arrayRangeModificator);
+        int arrayLenght = generateRandom(arrayRangeModificator, arrayRangeModificator);
 
         if (arrayLenght == 0) {
             arrayLenght = 1;
@@ -51,20 +64,18 @@ public class Progression {
 
         var progression = new String[arrayLenght];
 
-        final int progressionRange = 100;
+        int progressionDisplacement = generateRandom(LOWER_RANGE_LIMIT, progressionRange);
 
-        final int progressionStepRange = 10;
-
-        int progressionDisplacement = (int) (Math.random() * progressionRange);
-
-        int progressionStep = (int) (Math.random() * progressionStepRange);
+        int progressionStep = generateRandom(LOWER_RANGE_LIMIT, progressionRangeStep);
 
         for (int i = 0; i < arrayLenght; i++) {
+
             int count = i + progressionDisplacement + (i * progressionStep);
 
             String count2 = String.valueOf(count);
 
             progression[i] = count2;
+
         }
 
         return progression;
