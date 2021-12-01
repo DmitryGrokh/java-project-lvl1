@@ -37,7 +37,7 @@ public class GSDGame {
     }
 
 
-    public static int findGcd(int firstNumber, int secondNumber) {
+    private static int findGcd(int firstNumber, int secondNumber) {
         while (secondNumber != 0) {
             int tmp = firstNumber % secondNumber;
             firstNumber = secondNumber;

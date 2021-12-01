@@ -47,7 +47,7 @@ public class CalculatorGame {
     }
 
 
-    public static int calculateRightAnswer(int firstNumber, String typeOfOperation, int secondNumber) {
+    private static int calculateRightAnswer(int firstNumber, String typeOfOperation, int secondNumber) {
 
         int rightAnswer = 0;
 

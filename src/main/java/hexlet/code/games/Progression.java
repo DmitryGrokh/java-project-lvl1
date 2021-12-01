@@ -42,7 +42,7 @@ public class Progression {
     }
 
 
-    public static String buildQuestion(String[] array, int hiddenItemIndex) {
+    private static String buildQuestion(String[] array, int hiddenItemIndex) {
 
         array[hiddenItemIndex] = "..";
 

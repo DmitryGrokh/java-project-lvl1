@@ -30,7 +30,6 @@ public class EvenGame {
             evenGameQuestions[counts] = evenQuestionToPlayer;
         }
 
-
         gameEngine(EVEN_GAME_RULES, evenGameQuestions, evenGameAnswers);
 
     }
