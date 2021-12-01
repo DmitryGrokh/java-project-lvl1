@@ -46,7 +46,7 @@ public class Engine {
 
             } else {
 
-                System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + rightAnswers[i]);
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'%n", playerAnswer, rightAnswers[i]);
                 System.out.println("Let's try again, " + currentPlayerName + "!");
                 break;
 
