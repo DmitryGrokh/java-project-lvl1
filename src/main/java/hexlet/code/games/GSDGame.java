@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.gameEngine;
+import static hexlet.code.Engine.GAME_COUNTS;
+import static hexlet.code.Engine.runGame;
 import static hexlet.code.Utils.generateRandom;
 import static hexlet.code.Utils.LOWER_RANGE_LIMIT;
 import static hexlet.code.Utils.UPPER_RANGE_LIMIT;
@@ -12,13 +13,12 @@ public class GSDGame {
 
     public static void playGcdGame() {
 
-        final int arraySize = 3;
 
-        String[] gcdGameQuestions = new String[arraySize];
+        var gcdGameQuestions = new String[GAME_COUNTS];
 
-        String[] gcdGameAnswers = new String[arraySize];
+        var gcdGameAnswers = new String[GAME_COUNTS];
 
-        for (int count = 0; count < arraySize; count++) {
+        for (int count = 0; count < GAME_COUNTS; count++) {
 
             int firstNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
 
@@ -31,7 +31,7 @@ public class GSDGame {
             gcdGameQuestions[count] = String.format("%d %d", firstNumber, secondNumber);
         }
 
-        gameEngine(GSD_GAME_RULES, gcdGameQuestions, gcdGameAnswers);
+        runGame(GSD_GAME_RULES, gcdGameQuestions, gcdGameAnswers);
 
 
     }

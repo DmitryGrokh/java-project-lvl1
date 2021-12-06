@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.gameEngine;
+import static hexlet.code.Engine.GAME_COUNTS;
+import static hexlet.code.Engine.runGame;
 import static hexlet.code.Utils.generateRandom;
 import static hexlet.code.Utils.LOWER_RANGE_LIMIT;
 import static hexlet.code.Utils.UPPER_RANGE_LIMIT;
@@ -9,31 +10,29 @@ public class CalculatorGame {
 
     public static final String CALCULATOR_GAME_RULES = "What is the result of the expression?";
 
+    public static final String[] OPERATIONS = new String[]{"+", "-", "*"};
+
     public static void playCalculatorGame() {
 
-        final int arraySize = 3;
+        var calculatorGameAnswers = new String[GAME_COUNTS];
 
-        String[] calculatorGameAnswers = new String[arraySize];
+        var calculatorGameQuestions = new String[GAME_COUNTS];
 
-        String[] calculatorGameQuestions = new String[arraySize];
+        for (int counts = 0; counts < GAME_COUNTS; counts++) {
 
-        var operations = new String[]{"+", "-", "*"};
+            int numberOfExercise = generateRandom(LOWER_RANGE_LIMIT, GAME_COUNTS);
 
-        for (int counts = 0; counts < arraySize; counts++) {
-
-            int numberOfExercise = generateRandom(LOWER_RANGE_LIMIT, arraySize);
-
-            if (numberOfExercise == arraySize) {
+            if (numberOfExercise == GAME_COUNTS) {
                 numberOfExercise = 0;
             }
 
-            String typeOfOperation = operations[numberOfExercise];
+            var typeOfOperation = OPERATIONS[numberOfExercise];
 
             int firstNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
 
             int secondNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
 
-            String questionToPlayer = String.format("%d %s %d", firstNumber, typeOfOperation, secondNumber);
+            var questionToPlayer = String.format("%d %s %d", firstNumber, typeOfOperation, secondNumber);
 
             var rightAnswer = calculateRightAnswer(firstNumber, typeOfOperation, secondNumber);
 
@@ -42,7 +41,7 @@ public class CalculatorGame {
             calculatorGameAnswers[counts] = String.valueOf(rightAnswer);
         }
 
-        gameEngine(CALCULATOR_GAME_RULES, calculatorGameQuestions, calculatorGameAnswers);
+        runGame(CALCULATOR_GAME_RULES, calculatorGameQuestions, calculatorGameAnswers);
 
     }
 

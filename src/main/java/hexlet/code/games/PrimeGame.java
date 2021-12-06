@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.gameEngine;
+import static hexlet.code.Engine.GAME_COUNTS;
+import static hexlet.code.Engine.runGame;
 import static hexlet.code.Utils.generateRandom;
 import static hexlet.code.Utils.LOWER_RANGE_LIMIT;
 import static hexlet.code.Utils.UPPER_RANGE_LIMIT;
@@ -12,17 +13,16 @@ public class PrimeGame {
 
     public static void playPrimeGame() {
 
-        final int arraySize = 3;
 
-        String[] primeGameQuestions = new String[arraySize];
+        var primeGameQuestions = new String[GAME_COUNTS];
 
-        String[] primeGameAnswers = new String[arraySize];
+        var primeGameAnswers = new String[GAME_COUNTS];
 
-        for (int count = 0; count < arraySize; count++) {
+        for (int count = 0; count < GAME_COUNTS; count++) {
 
             int randomNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
 
-            String rightAnswer = isPrime(randomNumber) ? "yes" : "no";
+            var rightAnswer = isPrime(randomNumber) ? "yes" : "no";
 
             primeGameQuestions[count] = String.valueOf(randomNumber);
 
@@ -30,7 +30,7 @@ public class PrimeGame {
 
         }
 
-        gameEngine(PRIME_GAME_RULES, primeGameQuestions, primeGameAnswers);
+        runGame(PRIME_GAME_RULES, primeGameQuestions, primeGameAnswers);
 
     }
 

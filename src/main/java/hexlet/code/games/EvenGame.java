@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.gameEngine;
+import static hexlet.code.Engine.GAME_COUNTS;
+import static hexlet.code.Engine.runGame;
 import static hexlet.code.Utils.generateRandom;
 import static hexlet.code.Utils.LOWER_RANGE_LIMIT;
 import static hexlet.code.Utils.UPPER_RANGE_LIMIT;
@@ -11,13 +12,12 @@ public class EvenGame {
 
     public static void playEvenGame() {
 
-        final int arraySize = 3;
 
-        String[] evenGameAnswers = new String[arraySize];
+        var evenGameAnswers = new String[GAME_COUNTS];
 
-        String[] evenGameQuestions = new String[arraySize];
+        var evenGameQuestions = new String[GAME_COUNTS];
 
-        for (int counts = 0; counts < arraySize; counts++) {
+        for (int counts = 0; counts < GAME_COUNTS; counts++) {
 
             int generatedNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
 
@@ -30,7 +30,7 @@ public class EvenGame {
             evenGameQuestions[counts] = evenQuestionToPlayer;
         }
 
-        gameEngine(EVEN_GAME_RULES, evenGameQuestions, evenGameAnswers);
+        runGame(EVEN_GAME_RULES, evenGameQuestions, evenGameAnswers);
 
     }
 

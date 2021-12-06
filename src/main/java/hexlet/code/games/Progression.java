@@ -2,9 +2,12 @@ package hexlet.code.games;
 
 import java.util.Arrays;
 
-import static hexlet.code.Engine.gameEngine;
-import static hexlet.code.Utils.generateRandom;
+import static hexlet.code.Engine.GAME_COUNTS;
+import static hexlet.code.Engine.runGame;
+
 import static hexlet.code.Utils.LOWER_RANGE_LIMIT;
+import static hexlet.code.Utils.UPPER_RANGE_LIMIT;
+import static hexlet.code.Utils.generateRandom;
 
 
 public class Progression {
@@ -13,19 +16,23 @@ public class Progression {
 
     public static void playProgressionGame() {
 
-        final int arraySize = 3;
-
-        final int progressionRange = 100;
-
         final int progressionRangeStep = 10;
 
-        String[] progressionGameQuestions = new String[arraySize];
+        var progressionGameQuestions = new String[GAME_COUNTS];
 
-        String[] progressionGameAnswers = new String[arraySize];
+        var progressionGameAnswers = new String[GAME_COUNTS];
 
-        for (int count = 0; count < arraySize; count++) {
+        final int arrayRangeModificator = 5;
 
-            var basedProgression = createProgression(progressionRange, progressionRangeStep);
+        for (int count = 0; count < GAME_COUNTS; count++) {
+
+            int arrayLenght = generateRandom(arrayRangeModificator, arrayRangeModificator);
+
+            int progressionDisplacement = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
+
+            int progressionStep = generateRandom(LOWER_RANGE_LIMIT, progressionRangeStep);
+
+            var basedProgression = createProgression(arrayLenght, progressionDisplacement, progressionStep);
 
             int randomPlaceInArray = generateRandom(LOWER_RANGE_LIMIT, basedProgression.length - 1);
 
@@ -37,45 +44,33 @@ public class Progression {
 
         }
 
-        gameEngine(PROGRESSION_GAME_RULES, progressionGameQuestions, progressionGameAnswers);
+        runGame(PROGRESSION_GAME_RULES, progressionGameQuestions, progressionGameAnswers);
 
     }
 
 
     private static String buildQuestion(String[] array, int hiddenItemIndex) {
 
-        array[hiddenItemIndex] = "..";
+        var arrayForQuestionBuilder = array.clone();
 
-        return Arrays.toString(array)
+        arrayForQuestionBuilder[hiddenItemIndex] = "..";
+
+        return Arrays.toString(arrayForQuestionBuilder)
                 .replace("[", "")
                 .replace("]", "")
                 .replace(",", "");
 
     }
 
-    private static String[] createProgression(int progressionRange, int progressionRangeStep) {
-        final int arrayRangeModificator = 5;
-
-        int arrayLenght = generateRandom(arrayRangeModificator, arrayRangeModificator);
-
-        if (arrayLenght == 0) {
-            arrayLenght = 1;
-        }
+    private static String[] createProgression(int arrayLenght, int progressionDisplacement, int progressionStep) {
 
         var progression = new String[arrayLenght];
-
-        int progressionDisplacement = generateRandom(LOWER_RANGE_LIMIT, progressionRange);
-
-        int progressionStep = generateRandom(LOWER_RANGE_LIMIT, progressionRangeStep);
 
         for (int i = 0; i < arrayLenght; i++) {
 
             int count = i + progressionDisplacement + (i * progressionStep);
 
-            String count2 = String.valueOf(count);
-
-            progression[i] = count2;
-
+            progression[i] = String.valueOf(count);
         }
 
         return progression;

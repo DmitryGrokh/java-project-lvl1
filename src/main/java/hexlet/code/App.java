@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.Cli.playerName;
+import static hexlet.code.Cli.greetingMessage;
 import static hexlet.code.games.CalculatorGame.playCalculatorGame;
 import static hexlet.code.games.EvenGame.playEvenGame;
 import static hexlet.code.games.GSDGame.playGcdGame;
@@ -21,22 +21,9 @@ public class App {
 
 
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calculator");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
-        System.out.print("Your choice: ");
-        Scanner scanner = new Scanner(System.in);
-        gameSelection(scanner.nextInt());
 
-    }
+        int gameNumber = gameSelection();
 
-
-    public static void gameSelection(int gameNumber) {
         switch (gameNumber) {
             case GREETING_MESSAGE:
                 greetingMessage();
@@ -66,11 +53,23 @@ public class App {
 
     }
 
-    public static void greetingMessage() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        final String currentPlayerName = playerName();
-        System.out.println("Hello, " + currentPlayerName + "!");
+
+    public static int gameSelection() {
+
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet");
+        System.out.println("2 - Even");
+        System.out.println("3 - Calculator");
+        System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
+        System.out.println("0 - Exit");
+        System.out.print("Your choice: ");
+
+        var scanner = new Scanner(System.in);
+        return scanner.nextInt();
+
+
     }
 
 
