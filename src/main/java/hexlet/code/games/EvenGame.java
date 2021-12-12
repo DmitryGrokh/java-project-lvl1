@@ -12,21 +12,16 @@ public class EvenGame {
 
     public static void playEvenGame() {
 
-
         var evenGameAnswers = new String[GAME_COUNTS];
-
         var evenGameQuestions = new String[GAME_COUNTS];
 
         for (int counts = 0; counts < GAME_COUNTS; counts++) {
 
             int generatedNumber = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
-
             var evenQuestionToPlayer = String.valueOf(generatedNumber);
-
             var evenRightAnswer = isEven(generatedNumber) ? "yes" : "no";
 
             evenGameAnswers[counts] = evenRightAnswer;
-
             evenGameQuestions[counts] = evenQuestionToPlayer;
         }
 
@@ -38,6 +33,7 @@ public class EvenGame {
     private static boolean isEven(int randomNumber) {
 
         return (randomNumber % 2) == 0;
+
     }
 
 }

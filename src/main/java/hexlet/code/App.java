@@ -2,10 +2,10 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.Cli.greetingMessage;
+import static hexlet.code.Cli.playerName;
 import static hexlet.code.games.CalculatorGame.playCalculatorGame;
 import static hexlet.code.games.EvenGame.playEvenGame;
-import static hexlet.code.games.GSDGame.playGcdGame;
+import static hexlet.code.games.GCDGame.playGcdGame;
 import static hexlet.code.games.PrimeGame.playPrimeGame;
 import static hexlet.code.games.Progression.playProgressionGame;
 
@@ -19,14 +19,20 @@ public class App {
     public static final int PRIME_GAME = 6;
     public static final int EXIT_PROGRAM = 0;
 
-
     public static void main(String[] args) {
 
-        int gameNumber = gameSelection();
+        printMenu();
+
+        var scanner = new Scanner(System.in);
+        int gameNumber = scanner.nextInt();
 
         switch (gameNumber) {
             case GREETING_MESSAGE:
-                greetingMessage();
+                System.out.print("Welcome to the Brain Games!"
+                        + System.lineSeparator()
+                        + "May I have your name? ");
+                final var currentPlayerName = playerName();
+                System.out.printf("Hello, %s!%n", currentPlayerName);
                 break;
             case EVEN_GAME:
                 playEvenGame();
@@ -50,11 +56,9 @@ public class App {
                 break;
         }
 
-
     }
 
-
-    public static int gameSelection() {
+    public static void printMenu() {
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
@@ -65,10 +69,6 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-
-        var scanner = new Scanner(System.in);
-        return scanner.nextInt();
-
 
     }
 

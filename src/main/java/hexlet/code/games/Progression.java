@@ -14,32 +14,28 @@ public class Progression {
 
     public static final String PROGRESSION_GAME_RULES = "What number is missing in the progression? ";
 
+    private static final int PROGRESSION_RANGE_STEP = 10;
+
+    private static final int ARRAY_RANGE_MODIFIER = 5;
+
     public static void playProgressionGame() {
 
-        final int progressionRangeStep = 10;
-
         var progressionGameQuestions = new String[GAME_COUNTS];
-
         var progressionGameAnswers = new String[GAME_COUNTS];
-
-        final int arrayRangeModificator = 5;
 
         for (int count = 0; count < GAME_COUNTS; count++) {
 
-            int arrayLenght = generateRandom(arrayRangeModificator, arrayRangeModificator);
+            int firstElement = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
+            int progressionLength = generateRandom(ARRAY_RANGE_MODIFIER, ARRAY_RANGE_MODIFIER);
+            int progressionStep = generateRandom(LOWER_RANGE_LIMIT, PROGRESSION_RANGE_STEP);
 
-            int progressionDisplacement = generateRandom(LOWER_RANGE_LIMIT, UPPER_RANGE_LIMIT);
+            var progression = createProgression(firstElement, progressionLength, progressionStep);
 
-            int progressionStep = generateRandom(LOWER_RANGE_LIMIT, progressionRangeStep);
+            int hiddenElementIndex = generateRandom(LOWER_RANGE_LIMIT, progression.length - 1);
 
-            var basedProgression = createProgression(arrayLenght, progressionDisplacement, progressionStep);
+            var rightAnswer = progression[hiddenElementIndex];
 
-            int randomPlaceInArray = generateRandom(LOWER_RANGE_LIMIT, basedProgression.length - 1);
-
-            var rightAnswer = basedProgression[randomPlaceInArray];
-
-            progressionGameQuestions[count] = buildQuestion(basedProgression, randomPlaceInArray);
-
+            progressionGameQuestions[count] = buildQuestion(progression, hiddenElementIndex);
             progressionGameAnswers[count] = rightAnswer;
 
         }
@@ -62,18 +58,19 @@ public class Progression {
 
     }
 
-    private static String[] createProgression(int arrayLenght, int progressionDisplacement, int progressionStep) {
+    private static String[] createProgression(int firstElement, int progressionLength, int progressionStep) {
 
-        var progression = new String[arrayLenght];
+        var progression = new String[progressionLength];
 
-        for (int i = 0; i < arrayLenght; i++) {
+        for (int i = 0; i < progressionLength; i++) {
 
-            int count = i + progressionDisplacement + (i * progressionStep);
+            int count = i + firstElement + (i * progressionStep);
 
             progression[i] = String.valueOf(count);
         }
 
         return progression;
+
     }
 
 }
