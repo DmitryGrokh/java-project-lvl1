@@ -44,7 +44,6 @@ public class Progression {
 
     }
 
-
     private static String buildQuestion(String[] array, int hiddenItemIndex) {
 
         var arrayForQuestionBuilder = array.clone();

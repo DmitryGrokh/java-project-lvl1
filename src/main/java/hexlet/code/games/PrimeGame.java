@@ -29,7 +29,6 @@ public class PrimeGame {
 
     }
 
-
     private static boolean isPrime(int number) {
 
         for (int i = 2; i < number; i++) {
