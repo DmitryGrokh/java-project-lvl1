@@ -68,12 +68,12 @@ public class App {
 
     }
     
-    private static void printGreetingMessage() {        
+    private static void printGreetingMessage() {
         System.out.print("Welcome to the Brain Games!"
-        + System.lineSeparator()
-        + "May I have your name? ");
+                + System.lineSeparator()
+                + "May I have your name? ");
         final var currentPlayerName = playerName();
-        System.out.printf("Hello, %s!%n", currentPlayerName);        
+        System.out.printf("Hello, %s!%n", currentPlayerName);
     }
     
 }
