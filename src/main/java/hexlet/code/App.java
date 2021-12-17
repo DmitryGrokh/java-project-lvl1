@@ -28,11 +28,7 @@ public class App {
 
         switch (gameNumber) {
             case GREETING_MESSAGE:
-                System.out.print("Welcome to the Brain Games!"
-                        + System.lineSeparator()
-                        + "May I have your name? ");
-                final var currentPlayerName = playerName();
-                System.out.printf("Hello, %s!%n", currentPlayerName);
+                printWelcomingMessage();
                 break;
             case EVEN_GAME:
                 playEvenGame();
@@ -72,5 +68,14 @@ public class App {
 
     }
 
+    private static void printWelcomingMessage() {
+
+        System.out.print("Welcome to the Brain Games!"
+                + System.lineSeparator()
+                + "May I have your name? ");
+        final var currentPlayerName = playerName();
+        System.out.printf("Hello, %s!%n", currentPlayerName);
+
+    }
 
 }
